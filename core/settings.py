@@ -26,8 +26,6 @@ SECRET_KEY = 'django-insecure-^=+rzth-e=k#nprf*jhdk7(d)y^cb9ufwqvy12v-ky-80t@p4x
 DEBUG = True
 
 ALLOWED_HOSTS = ['*']
-CORS_ALLOW_ALL_ORIGINS = True
-CORS_ALLOW_CREDENTIALS = True
 
 
 # Application definition
@@ -133,6 +131,11 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+
+CORS_ALLOW_ALL_ORIGINS = True
+CORS_ALLOW_CREDENTIALS = True
+
+
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework_simplejwt.authentication.JWTAuthentication',
@@ -149,3 +152,5 @@ SPECTACULAR_SETTINGS = {
     'SWAGGER_UI_FAVICON_HREF': 'SIDECAR',
     'REDOC_DIST': 'SIDECAR',
 }
+
+AUTH_USER_MODEL = 'users.CustomUser'
