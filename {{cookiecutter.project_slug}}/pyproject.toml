@@ -1,7 +1,7 @@
 [project]
-name = "djangotemplate"
+name = "{{cookiecutter.project_slug}}"
 version = "0.1.0"
-description = "Add your description here"
+description = "{{cookiecutter.description}}"
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
