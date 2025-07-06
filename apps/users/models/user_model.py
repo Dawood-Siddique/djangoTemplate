@@ -83,18 +83,20 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
         else:
             return False
     
-    def verify_otp(self, otp):
+    def verify_otp(self, otp, with_time = True):
         if settings.DEBUG:
             if otp == '12345':
                 self.is_verified = True
                 self.save()
                 return True
-        if self.otp and self.otp_created_at:
+        if self.otp and self.otp_created_at and with_time==True:
             time = (timezone.now() - self.otp_created_at).total_seconds()
-
             if time < 300 and self.otp == str(otp):
                 self.is_verified = True
                 self.save()
+                return True
+        elif self.otp and self.otp_created_at and with_time==False:
+            if self.otp == str(otp):
                 return True
         
         return False
