@@ -21,7 +21,7 @@ pip install cookiecutter
 
 2. Generate a new project:
 ```bash
-cookiecutter https://github.com/yourusername/django-api-template
+cookiecutter https://github.com/Dawood-Siddique/djangoTemplate
 ```
 
 3. Follow the prompts to customize your project
