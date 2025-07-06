@@ -12,7 +12,7 @@ from .views.user_view import (
 )
 
 user = [
-    path('user/refresh/', TokenRefreshView.as_view(), name='refresh_token'),
+    path('user/refresh/', TokenRefreshView.as_view(), name='refresh-token'),
     path('user/login/', LoginView.as_view(), name='user-login'),
     path('user/register/', RegisterView.as_view(), name='user-register'),
     path('user/verify_otp/', VerifyOtpView.as_view(), name='verify-otp'),

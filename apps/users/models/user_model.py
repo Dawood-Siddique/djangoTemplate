@@ -50,7 +50,7 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
 
     otp = models.CharField(max_length=5, blank=True, null=True)
     otp_created_at = models.DateTimeField(blank=True, null=True)
-    is_verified = models.BooleanField(default=False) # DEFAULT SHOULD BE FALSE | Set True ot not use is true
+    is_verified = models.BooleanField(default=False) # DEFAULT SHOULD BE FALSE | Set True to not use is_verified
     
     objects = CustomUserManager()
 
