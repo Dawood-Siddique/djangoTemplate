@@ -21,7 +21,7 @@ pip install cookiecutter
 
 2. Generate a new project:
 ```bash
-cookiecutter https://github.com/Dawood-Siddique/djangoTemplate
+cookiecutter https://github.com/Dawood-Siddique/starter-kit-dj
 ```
 
 3. Follow the prompts to customize your project
