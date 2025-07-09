@@ -9,3 +9,5 @@ theme
 !**/migrations/__init__.py
 tmp.ipynb
 
+logs/*
+!logs/.gitkeep
