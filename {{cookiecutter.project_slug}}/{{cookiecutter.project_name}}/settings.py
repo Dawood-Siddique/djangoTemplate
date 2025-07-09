@@ -31,6 +31,7 @@ ALLOWED_HOSTS = ['*']
 AUTH_USER_MODEL = 'users.CustomUser'
 CORS_ALLOW_ALL_ORIGINS = True
 CORS_ALLOW_CREDENTIALS = True
+DJANGO_LOG_LEVEL = 'INFO'
 
 
 # Application definition
