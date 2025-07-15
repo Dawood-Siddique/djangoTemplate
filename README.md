@@ -11,6 +11,7 @@ A Cookiecutter template for creating Django REST API projects with modern best p
 - CORS support
 - Modern Python dependency management with uv
 - Well-structured app organization
+- Database flexibility (SQLite or PostgreSQL)
 
 ## Usage
 
@@ -35,6 +36,8 @@ cookiecutter https://github.com/Dawood-Siddique/starter-kit-dj
 - **author_name**: Your name
 - **author_email**: Your email address
 - **description**: A brief description of your project
+- **database**: Choose between SQLite (default) or PostgreSQL
+
 
 ## Template Structure
 
@@ -52,10 +55,13 @@ The generated project includes:
 After generating your project:
 
 1. Install dependencies: `uv sync`
-2. Run migrations: `uv run python manage.py migrate`
-3. Create superuser: `uv run python manage.py createsuperuser`
-4. Start server: `uv run python manage.py runserver`
-5. Visit API docs: http://localhost:8000/api/docs/
+2. Set up your database:
+   - **SQLite**: No setup required (database file is created automatically)
+   - **PostgreSQL**: Create the database and ensure PostgreSQL is running
+3. Run migrations: `uv run python manage.py migrate`
+4. Create superuser: `uv run python manage.py createsuperuser`
+5. Start server: `uv run python manage.py runserver`
+6. Visit API docs: http://localhost:8000/api/docs/
 
 ## License
 

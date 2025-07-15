@@ -3,5 +3,6 @@
     "project_slug": "{{ cookiecutter.project_name.lower().replace(' ', '-').replace('_', '-') }}",
     "author_name": "Your Name",
     "author_email": "your.email@example.com",
-    "description": "A Django REST API project"
+    "description": "A Django REST API project",
+    "database": ["sqlite3", "postgresql"]
 }

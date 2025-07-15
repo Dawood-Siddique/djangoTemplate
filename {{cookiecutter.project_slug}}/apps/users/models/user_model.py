@@ -7,7 +7,7 @@ import random
 
 # Create your models here.
 
-class CustomUserManager(UserManager):
+class UserManager(UserManager):
     def _create_user(self, email, password, **extra_fields):
         if not email:
             raise ValueError("No email provided")
@@ -28,7 +28,7 @@ class CustomUserManager(UserManager):
         extra_fields.setdefault("is_superuser", True)
         return self._create_user(email, password, **extra_fields)
         
-class CustomUser(AbstractBaseUser, PermissionsMixin):
+class User(AbstractBaseUser, PermissionsMixin):
 
     email = models.EmailField(blank=True, default="", unique=True)
     first_name = models.CharField(max_length=225, blank=True, default="")
@@ -52,7 +52,7 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
     otp_created_at = models.DateTimeField(blank=True, null=True)
     is_verified = models.BooleanField(default=False) # DEFAULT SHOULD BE FALSE | Set True to not use is_verified
     
-    objects = CustomUserManager()
+    objects = UserManager()
 
     USERNAME_FIELD = 'email'
     EMAIL_FIELD = 'email'
