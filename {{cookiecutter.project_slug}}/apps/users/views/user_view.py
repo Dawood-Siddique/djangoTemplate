@@ -4,6 +4,10 @@ from rest_framework.status import *
 from apps.users.serializers.user_serializer import (
     LoginSerializer,
     RegisterSerializer,
+    SendOtpSerializer,
+    VerifyOtpSerializer,
+    ResetPasswordWithOtpSerializer,
+    ChangePasswordSerializer
 )
 from rest_framework.permissions import IsAuthenticated
 from django.contrib.auth import get_user_model
@@ -12,6 +16,7 @@ from django.contrib.auth import get_user_model
 User = get_user_model()
 # Create your views here.
 class RegisterView(APIView):
+    serializer_class = RegisterSerializer
     def post(self, request):
         serializer = RegisterSerializer(data=request.data)
 
@@ -23,6 +28,7 @@ class RegisterView(APIView):
         
 
 class LoginView(APIView):
+    serializer_class = LoginSerializer
     def post(self, request):
         serializer = LoginSerializer(data=request.data)
 
@@ -34,6 +40,8 @@ class LoginView(APIView):
 
 class ChangePasswordView(APIView):
     permission_classes = [IsAuthenticated]
+    serializer_class = ChangePasswordSerializer
+
     def post(self, request):
         user = request.user
         old_password = request.data.get('old_password')
@@ -51,6 +59,8 @@ class ChangePasswordView(APIView):
         return Response({'message': 'Password changed successfully'}, status=HTTP_200_OK)
 
 class ResetPasswordWithOtpView(APIView):
+    serializer_class = ResetPasswordWithOtpSerializer
+
     def post(self, request):
         email = request.data.get('email')
         otp = request.data.get('otp')
@@ -73,6 +83,8 @@ class ResetPasswordWithOtpView(APIView):
         return Response({'message': 'Password reset successfully'}, status=HTTP_200_OK)
 
 class SendOtpView(APIView):
+    serializer_class = SendOtpSerializer
+
     def post(self, request):
         email = request.data.get('email')
 
@@ -91,6 +103,8 @@ class SendOtpView(APIView):
         
         
 class VerifyOtpView(APIView):
+    serializer_class = VerifyOtpSerializer
+
     def post(self, request):
         email = request.data.get('email')
         otp = request.data.get('otp')

@@ -46,3 +46,20 @@ class LoginSerializer(serializers.ModelSerializer):
         }
 
 
+
+class VerifyOtpSerializer(serializers.Serializer):
+    email = serializers.EmailField()
+    otp = serializers.CharField()
+
+class SendOtpSerializer(serializers.Serializer):
+    email = serializers.EmailField()
+
+class ResetPasswordWithOtpSerializer(serializers.Serializer):
+    email = serializers.EmailField()
+    otp = serializers.CharField()
+    new_password = serializers.CharField()
+
+class ChangePasswordSerializer(serializers.Serializer):
+    old_password = serializers.CharField()
+    new_password = serializers.CharField()
+
